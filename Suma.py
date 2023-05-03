@@ -6,3 +6,6 @@ print(Sum2)
 
 Sum3 = 21 + 7
 print(Sum3)
+
+Sum4 = 1 + 1
+print(Sum4)
