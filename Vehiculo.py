@@ -5,6 +5,7 @@ class Vehiculo():
 
     def __init__(self):
         pass
+
     def matricula(self):
         self.matricula = random.randint(0, 9999)
 
