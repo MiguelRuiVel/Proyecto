@@ -1,4 +1,11 @@
 import pygame
 from Vehiculo import *
+
+
 class Coche(Vehiculo):
-    pass
+    def __int__(self):
+        pass
+
+
+miCoche = Coche()
+miCoche.estado()
