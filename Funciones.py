@@ -2,6 +2,7 @@ import pygame
 import sys
 import os
 
+
 def cargar_imagen(nombre, dir_imagen, alpha=False):
     # Encontramos la ruta completa de la imagen
     ruta = os.path.join(dir_imagen, nombre)
@@ -17,6 +18,7 @@ def cargar_imagen(nombre, dir_imagen, alpha=False):
         image = image.convert()
     return image
 
+
 def contartiempo(cadena, tipoFuente, tamaño, colorTexto):
     tiempo = pygame.time.get_ticks() / 1000
     cadena = cadena + str(tiempo)
@@ -24,9 +26,8 @@ def contartiempo(cadena, tipoFuente, tamaño, colorTexto):
     texto = fuente.render(cadena, True, colorTexto)
     return texto
 
+
 def mostrartexto(cadena, tipoFuente, tamaño, colorTexto):
     fuente = pygame.font.SysFont(tipoFuente, tamaño)
     texto = fuente.render(cadena, True, colorTexto)
     return texto
-
-

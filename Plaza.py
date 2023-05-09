@@ -1,7 +1,8 @@
 import pygame
 
-import funciones
-from funciones import cargar_imagen
+import Funciones
+from Funciones import cargar_imagen
+
 
 class Plaza(pygame.sprite.Sprite):
 
@@ -17,7 +18,6 @@ class Plaza(pygame.sprite.Sprite):
         self.rect = self.imagen.get_rect()
         self.rect.centerx = 580 / 1.95
         self.rect.centery = 474 / 4
-
 
     def plazadisponible(self):
         self.imagen = cargar_imagen("Plazadisponible.png ", "imagenes", alpha=False)
@@ -37,5 +37,3 @@ class Plaza(pygame.sprite.Sprite):
 
         else:
             self.plazadisponible()
-
-

@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 import pygame
 import sys
-import funciones
-import plaza
-from funciones import cargar_imagen
-import vehiculo
+import Funciones
+import Plaza
+from Funciones import cargar_imagen
+import Vehiculo
 
 # -----------
 # Constantes
@@ -23,10 +23,10 @@ def JuegoParking():
     pygame.display.set_caption("Gestor parking")
     # cargamos los objetos
     fondo = cargar_imagen("parking.png", IMG_DIR, alpha=False)
-    coche = vehiculo.Vehiculo("coche1.png")
-    estaciono = plaza.Plaza("Plazaocupada.png")
-    estaciond = plaza.Plaza("Plazadisponible.png")
-    estacionp = plaza.Plaza("Plazaprueba.png")
+    coche = Vehiculo.Vehiculo("coche1.png")
+    estaciono = Plaza.Plaza("Plazaocupada.png")
+    estaciond = Plaza.Plaza("Plazadisponible.png")
+    estacionp = Plaza.Plaza("Plazaprueba.png")
 
     colorTexto = (255, 255, 255)
     cadena = "Tiempo:"
@@ -35,15 +35,14 @@ def JuegoParking():
 
     # el bucle principal del juego
     while True:
-        contartiempo = funciones.contartiempo(cadena, tipoFuente, tamaño, colorTexto)
-        plaza.Plaza.plazadisponible(estaciond)
-        plaza.Plaza.plazadisponible(estaciond)
-        plaza.Plaza.plazaocupada(estaciono)
-        plaza.Plaza.plazaprueba(estacionp)
-        vehiculo.Vehiculo.movimiento_coche(coche)
-        vehiculo.Vehiculo.cliente(coche)
+        contartiempo = Funciones.contartiempo(cadena, tipoFuente, tamaño, colorTexto)
+        Plaza.Plaza.plazadisponible(estaciond)
+        Plaza.Plaza.plazadisponible(estaciond)
+        Plaza.Plaza.plazaocupada(estaciono)
+        Plaza.Plaza.plazaprueba(estacionp)
+        Vehiculo.Vehiculo.movimiento_coche(coche)
+        Vehiculo.Vehiculo.cliente(coche)
         estacionp.colision(coche)
-
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -57,8 +56,8 @@ def JuegoParking():
         screen.blit(estacionp.imagen, estacionp.rect)
         screen.blit(coche.imagen, coche.rect)
 
-
         pygame.display.flip()
+
 
 if __name__ == "__main__":
     JuegoParking()
