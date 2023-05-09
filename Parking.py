@@ -41,7 +41,7 @@ def JuegoParking():
         Plaza.Plaza.plazaocupada(estaciono)
         Plaza.Plaza.plazaprueba(estacionp)
         Vehiculo.Vehiculo.movimiento_coche(coche)
-        Vehiculo.Vehiculo.cliente(coche)
+        Vehiculo.Vehiculo.limites(coche)
         estacionp.colision(coche)
 
         for event in pygame.event.get():

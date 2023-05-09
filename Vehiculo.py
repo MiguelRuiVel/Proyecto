@@ -34,7 +34,7 @@ class Vehiculo(pygame.sprite.Sprite):
             # añadir nuevo coche
             pass
 
-    def cliente(self):
+    def limites(self):
         # Controlar que la vehiculo no salga de la pantalla
         # Abajo
         if self.rect.centery > SCREEN_HEIGHT:
@@ -48,3 +48,4 @@ class Vehiculo(pygame.sprite.Sprite):
         # Izquierda
         if self.rect.centerx < 0:
             self.rect.centerx = 0
+
