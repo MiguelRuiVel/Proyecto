@@ -28,6 +28,7 @@ def JuegoParking():
     estaciond = Plaza.Plaza("Plazadisponible.png")
     estacionp = Plaza.Plaza("Plazaprueba.png")
 
+
     colorTexto = (255, 255, 255)
     cadena = "Tiempo:"
     tamaño = 20
@@ -43,6 +44,8 @@ def JuegoParking():
         Vehiculo.Vehiculo.movimiento_coche(coche)
         Vehiculo.Vehiculo.limites(coche)
         estacionp.colision(coche)
+        coche.Vehiculo.puntuacion(estacionp)
+        contar = Funciones.mostrartexto(cadena + str (coche.puntos), tipoFuente, tamaño, colorTexto)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

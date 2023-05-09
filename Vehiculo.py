@@ -13,6 +13,7 @@ class Vehiculo(pygame.sprite.Sprite):
         self.rect.centerx = SCREEN_WIDTH / 10
         self.rect.centery = SCREEN_HEIGHT / 1.65
         self.speed = 4
+        self.puntos = 0
 
     def movimiento_coche(self):
         keys = pygame.key.get_pressed()
@@ -48,4 +49,8 @@ class Vehiculo(pygame.sprite.Sprite):
         # Izquierda
         if self.rect.centerx < 0:
             self.rect.centerx = 0
+
+    def puntuacion(self, objeto):
+        if self.rect.colliderect(objeto.rect):
+            self.puntos += 1
 
