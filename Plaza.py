@@ -6,7 +6,7 @@ from Funciones import cargar_imagen
 
 class Plaza(pygame.sprite.Sprite):
 
-    def __init__(self, image, posicion):
+    def __init__(self, image):
         pygame.sprite.Sprite.__init__(self)
         self.image = cargar_imagen("Plazaocupada.png", "imagenes", alpha=False)
         self.rect = self.image.get_rect()

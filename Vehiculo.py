@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import *
 from Parking import *
 from Funciones import cargar_imagen
+from Parking import SCREEN_WIDTH,SCREEN_HEIGHT
 
 
 class Vehiculo(pygame.sprite.Sprite):

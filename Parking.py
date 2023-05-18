@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 import pygame
 import sys
-import Funciones
-import Plaza
-import Vehiculo
+from Funciones import *
+from Plaza import *
+from Vehiculo import *
 from Funciones import cargar_imagen
 
 # -----------
