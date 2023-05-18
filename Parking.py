@@ -4,8 +4,8 @@ import pygame
 import sys
 import Funciones
 import Plaza
-from Funciones import cargar_imagen
 import Vehiculo
+from Funciones import cargar_imagen
 
 # -----------
 # Constantes
@@ -23,11 +23,12 @@ def JuegoParking():
     pygame.display.set_caption("Gestor parking")
     # cargamos los objetos
     fondo = cargar_imagen("parking.png", IMG_DIR, alpha=False)
-    coche = Vehiculo.Vehiculo("coche1.png")
     estaciono = Plaza.Plaza("Plazaocupada.png")
     estaciond = Plaza.Plaza("Plazadisponible.png")
     estacionp = Plaza.Plaza("Plazaprueba.png")
+    coche = Vehiculo.Vehiculo()
 
+    # cliente = Obstaculo.Obstaculo()
 
     colorTexto = (255, 255, 255)
     cadena = "Tiempo:"
@@ -41,23 +42,27 @@ def JuegoParking():
         Plaza.Plaza.plazadisponible(estaciond)
         Plaza.Plaza.plazaocupada(estaciono)
         Plaza.Plaza.plazaprueba(estacionp)
-        Vehiculo.Vehiculo.movimiento_coche(coche)
+        Vehiculo.Vehiculo.update(coche)
         Vehiculo.Vehiculo.limites(coche)
         estacionp.colision(coche)
-        coche.Vehiculo.puntuacion(estacionp)
-        contar = Funciones.mostrartexto(cadena + str (coche.puntos), tipoFuente, tamaño, colorTexto)
+        lista_estacion=pygame.sprite.Group()
+        # coche.Vehiculo.puntuacion(estacionp)
+        # contar = Funciones.mostrartexto(cadena + str(coche.puntos), tipoFuente, tamaño, colorTexto)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
 
+        coche.update()
+
         # actualizamos la pantalla
         screen.blit(fondo, (0, 0))
         screen.blit(contartiempo, (20, 3))
-        screen.blit(estaciono.imagen, estaciono.rect)
-        screen.blit(estaciond.imagen, estaciond.rect)
-        screen.blit(estacionp.imagen, estacionp.rect)
-        screen.blit(coche.imagen, coche.rect)
+        screen.blit(estaciono.image, estaciono.rect)
+        screen.blit(estaciond.image, estaciond.rect)
+        screen.blit(estacionp.image, estacionp.rect)
+        screen.blit(coche.image, coche.rect)
+        # Obstaculo.Obstaculo.posiciones
 
         pygame.display.flip()
 

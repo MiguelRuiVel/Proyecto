@@ -74,23 +74,23 @@ class Vehiculo(pygame.sprite.Sprite):
         if direction == 'left':
             self.clip(self.left_states)
             self.rect.x -= 5
-        if direction == 'right':
+        elif direction == 'right':
             self.clip(self.right_states)
             self.rect.x += 5
-        if direction == 'up':
+        elif direction == 'up':
             self.clip(self.up_states)
             self.rect.y -= 5
-        if direction == 'down':
+        elif direction == 'down':
             self.clip(self.down_states)
             self.rect.y += 5
 
-        if direction == 'stand_left':
+        elif direction == 'stand_left':
             self.clip(self.left_states[0])
-        if direction == 'stand_right':
+        elif direction == 'stand_right':
             self.clip(self.right_states[0])
-        if direction == 'stand_up':
+        elif direction == 'stand_up':
             self.clip(self.up_states[0])
-        if direction == 'stand_down':
+        elif direction == 'stand_down':
             self.clip(self.down_states[0])
 
         self.image = self.sheet.subsurface(self.sheet.get_clip())
@@ -103,22 +103,22 @@ class Vehiculo(pygame.sprite.Sprite):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
               self.update('left')
-            if event.key == pygame.K_RIGHT:
+            elif event.key == pygame.K_RIGHT:
               self.update('right')
-            if event.key == pygame.K_UP:
+            elif event.key == pygame.K_UP:
               self.update('up')
-            if event.key == pygame.K_DOWN:
+            elif event.key == pygame.K_DOWN:
               self.update('down')
 
         if event.type == pygame.KEYUP:
 
             if event.key == pygame.K_LEFT:
                 self.update('stand_left')
-            if event.key == pygame.K_RIGHT:
+            elif event.key == pygame.K_RIGHT:
                 self.update('stand_right')
-            if event.key == pygame.K_UP:
+            elif event.key == pygame.K_UP:
                 self.update('stand_up')
-            if event.key == pygame.K_DOWN:
+            elif event.key == pygame.K_DOWN:
                 self.update('stand_down')
 
 
